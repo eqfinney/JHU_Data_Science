@@ -1,2 +1,2 @@
 ## datasciencecoursera
-### work and notes related to my JHU data science specialization
+work and notes related to my JHU data science specialization
