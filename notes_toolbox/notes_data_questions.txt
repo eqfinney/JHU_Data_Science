@@ -1,0 +1,43 @@
+TYPES OF DATA SCIENCE QUESTIONS
+Descriptive analyses: describe a data set, not generalizable w/o more analysis
+Exploratory analyses: find relationships you previously didn't know about
+Correlation does not imply causation - exploratory should not be generalized
+Inferential analyses: use small sample of data, extrapolate to bigger population
+Predictive analyses: use data of some objects to predict values of other objects
+If X predicts Y, it does NOT mean that X causes Y. More data, simple model good
+Causal analyses: find out what happens to one variable when you change another
+Usually requires randomized studies to find causation, or you introduce bias
+Usually identified as average effects rather than applicable to individuals
+Mechanistic analyses: understand the exact changes in variables that lead to other changes in other variables for individual objects
+Incredibly hard to infer because they require simple and certain models
+
+WHAT IS DATA?
+Values of qualitative/quantitative variables, belonging to a set of items
+Set of items: population, set of objects in which you have interest
+Variables: a measurement or characteristic of an item in which you have interest
+Qualitative: non-ordered, non-numeric. 
+Quantitative: measured on a continuous scale, often numeric
+Data do not necessarily come in a clean, tabled form
+More important than the data, however, are the questions you are asking
+Some data sets are so big that you can only analyze them through the cloud
+Hadoop is only relevant if you have more data than fit on your local compyuter
+But large data set does not imply the right data seT, no matter how big data are
+
+EXPERIMENTAL DESIGN
+Know and care about the analysis plan, all aspects of design and analysis
+For any study, have a plan for data and code sharing
+For A/B test, want a large difference with small variability to infer correctly
+Confounding variables: other variables that influence your variables of interest
+Spurious correlation often is associated with confounding variables
+Fix as many variables as possible and if you can't fix it, stratify or randomize
+Stratify: use an equal number of unfixed variables in both samples
+For a prediction study, a difference in the mean is insufficient to predict
+You need separated distributions in order to come up with a decent training set
+Sensitivity: P(positive test|disease)
+Specificity: P(negative test|no disease)
+Positive predictive value: P(disease|positive test)   
+Negative predictive value: P(no disease|negative test)
+Accuracy: P(correct outcome)
+Beware data dredging - test multiple times until you get the answer you like
+Good experiments are replicable, measure variability, generalize, transparent
+Prediction != inference, although both can be important

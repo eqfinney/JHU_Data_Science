@@ -1,0 +1,3 @@
+Access help file: ?function
+Search help files: help.search("function")
+Get arguments: args("function")

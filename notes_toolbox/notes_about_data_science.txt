@@ -1,0 +1,41 @@
+GETTING HELP IN R
+Access help file: ?function
+Search help files: help.search("function")
+Get arguments: args("function")
+See the code: function
+
+HOW TO ASK AN R QUESTION
+- What steps will reproduce the problem?
+- What is the expected output?
+- What do you see instead?
+- What version of the product (eg R, packages, etc) are you using?
+- What operating system?
+
+HOW TO ASK A DATA ANALYSIS QUESTION
+- What is the question you are trying to answer?
+- What steps/tools did you use to answer it?
+- What did you expect to see?
+- What do you see instead?
+- What other solutions have you thought about?
+
+ETIQUETTE
+- Be very specific in question titles on the message board.
+- Describe the goal explicitly
+- Provide the minimum amount of information
+- Follow up and post solutions
+
+Hacking skills: finding the information you need to solve the problem
+- Willing to find answers
+- Knowledgeable about where to find answers
+- Unintimidated by new data types/packages
+- Unafraid to not know the answer
+- Polite but relentless in finding the answers
+
+QUESTIONS
+Class forums
+Read the help files
+Google searches
+Ask a friend
+Stackoverflow
+CrossValidated
+

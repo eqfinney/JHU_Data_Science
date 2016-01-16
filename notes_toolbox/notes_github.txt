@@ -1,0 +1,35 @@
+INTRODUCTION TO GIT
+Version control records changes to a file or set of files over time
+To add a new branch: git remote add origin "url"
+To add to "watchlist": git add -A
+To commit to local repo: git commit -m "message"
+To commit to github: git push
+To create a branch (aka copy): git checkout -b branchname
+To see what branch you are on: git branch
+To switch back to the master branch: git checkout master
+To get a new branch from your github: git clone "url"
+Go to Github help! https://help.github.com/
+Go to the documentation! http://git-scm.com/doc
+
+BASIC MARKDOWN
+Markdown files have extension .md
+
+Headings: 
+## Secondary heading
+### Tertiary heading
+
+Bullet points:
+* first item
+* second item
+* etc.
+
+http://daringfireball.net/projects/markdown
+
+OBTAINING R PACKAGES
+a <- available.packages()
+You can look at CRAN for many packages
+install.packages("packagename") installs packages and dependencies
+install.packages(c("package1","package2"))
+Or use RStudio and use Install Packages
+After installing you have to load: library(packagename)
+search() allows you to find out what packages you have installed
