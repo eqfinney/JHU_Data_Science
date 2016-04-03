@@ -1,0 +1,87 @@
+HISTORY/OVERVIEW OF R
+R: a dialect of S (stats environment from Fortran), later rewritten in C
+Pros: simple, easy user interface, active community
+Cons: little support for 3D graphics, functionality based on consumer demand
+R is comprised of the "base" CRAN and then various packages
+R resources: available on http://cran.r-project.org
+
+R INPUT, EVALUATION, DATA TYPES	
+<-   Assignment operator
+#    Comment
+When code is evaluated, [] denotes vector, w/first element inside the brackets
+"Atomic" classes of objects: character, numeric, integer, complex, logical
+Basic object: a vector, contains only objects of same class
+      Unless you have a list, represented as a vector but objects of various classes
+y[0] find the 1st element of y (indexed from 1)
+Numbers usually treated as "numeric" (double precision)
+1L   Explicitly gives the integer 1
+Inf  Infinity
+NaN  Undefined value, treated as a missing value
+Objects have attributes: names/dimnames, dimensions, class, length, etc.
+	To find out what attributes the object has, use attributes()
+c() concatenates various bits of data together into a vector
+When the two objects are different data types, they are coerced together 
+     You can explicitly coerce from one class to another using as.*
+     When coercion doesn't work, a NA value results
+list() can carry objects of multiple types; represented by [[]]
+     Elements of the list are single vectors, shown as such
+matrix(nrow=*, ncol=*) allows you to create a multidimensional object
+     Matrices are constructed columnwise from a vctor
+     They can also be created by cbind and rbind, binding vectors by c column or row
+Factors: vectors used to represent categorical (labelled) data
+     Treated by modeling functions lm() and glm()
+     Levels: which categories you have, baseline level alphabetical order)
+     table(how many of each level exist in the vector)
+     unclass(): turns from a factor vector back to integers
+     Use the levels attribute to specifically choose which order is the baseline
+Missing values denoted by NA (not exactly NaN - undefined math). NA != NaN
+    You can determine which is the NA or NaN with is.na() and is.nan()
+Data frames can be used to store tabular data
+    Can store different classes of objects in each column
+    Row and column names (row.names)
+    Create them by calling read.table(), read.csv(), data.frame()
+    Convert to a matrix with data.matrix(), will cause coercion
+R object names: names() gives a name to each element of vector, etc.
+    dimnames() assigns names to each dimension of a matrix
+
+READING AND WRITING DATA
+To read data: read.table(), read.csv() read tabular data from text file (data frame)
+   readLines() reads lines of a text file (returns characters), reads R code files
+   source() reads in R code files (inverse of dump)
+To write data: write.table(), writeLines, dump()
+read.table() usually doesn't require other arguments for small/medium data sets
+   read.csv() assumes a default separator of a comma
+   Take a peek at the help page for read.table()
+   Specifying initial classes can be very helpful, and set comment character to ""
+For large data sets: how much memory is available, what other applications in use,
+   other users logged into system, what is the OS, and 32 or 64 bit?
+   Then calculate the memory requirements (size of data frame * bytes/numeric)
+   Compare your memory requirements to how much RAM your computer has
+For textual data formats, including code, use dump() and dput() (preserve metadata)
+   These formats work well with version control, can fix corruption
+   But they're not very space-efficient formats
+dput() creates R code that reconstructs the object in R (inverse dget())
+dump() is like dput() except it can be used on multiple objects (inverse source())
+Connection interfaces allows you to read in data from various files
+   file opens file connection, gzfile opens gzip compressed, url opens web page
+   Various keywords and arguments that modify how you read file
+   Can be useful if you only want to read parts of a file, for instance
+
+SUBSETTING
+[ returns an object of same class as the original, can have more than one element
+[[ extracts elements of a list or data frame, single element
+$ extracts elements of a list or data frame by name
+eg. x[1] returns the first element of the vector x
+    y[[1]] returns the first element of the list y (whole element)
+    z$name returns the element named "name" from the list z
+Need to use a single bracket to return multiple objects
+Double bracket can take an integer sequence, so you can get nested list elements
+Matrices and data frames are subsetted just like their vector and list counterparts
+With $ you can do partial matching (part of a name is given, command line)
+When subsetting you remove missing values by setting a vector of elements to not use
+     Or use complete.cases() to remove missing valuse from multiple objects
+
+VECTORIZED OPERATIONS
+You can apply an operation over all the elements of the matrix/vector
+*    multiply matrix element-wise
+%*%  true matrix multiplication

@@ -1,0 +1,16 @@
+LOOPS IN R
+Some loop functions
+  - lapply (loop over a list and evaluate function on each element)
+  - sapply (simplify result of lapply)
+  - apply (apply function over margins of array)
+  - tapply (apply function over vector subsets)
+  - mapply (lapply, but multivariate)
+lapply always returns a list upon which a function has been acted
+These functions often use anonymous functions within the argument of the loop
+apply is usually used to apply a function to a matrix
+  "margin" is the axis along which you are applying the functon
+  (note shortcuts exist: rowSums, rowMeans, colSums, colMeans)
+mapply works when you have a function with multiple variables
+tapply is a lot like lapply etc but works over vector subsets
+split is also very useful - can split objects into groups
+  

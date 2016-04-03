@@ -1,0 +1,83 @@
+CONTROL STRUCTURES
+if(condition) {
+	## stuff
+} else if(condition) {
+        ## stuff
+} else {
+        ## stuff
+}
+You can assign a variable y in the ## stuff part of the construct.
+You can also assign y equal to the if-else construct.
+
+for(i in range/vector) {
+        ## stuff
+}
+You can go by index, by item in the vector.
+Or use the seq_along(vector), which is like Python's range function.
+For a single expression you can omit the curly braces also.
+You can use the seq_len(x) function, which is kind of like NumPy's arange().
+
+while(condition) {
+	## stuff
+}
+You can test multiple conditions by using operators like && (and presumably ||)
+
+repeat {
+       ## stuff
+       break
+}
+Basically starts an infinite loop and stops after you break.
+Common for tolerance/optimization calculations.
+next says that you should skip an iteration of a loop
+return says that you should exit a function and return a value
+Control structures are better in programs than in command-line work
+    (if you need to do command-line work use the *apply functions)
+Note: put your functions in a documented package
+
+ncol() gives you the number of columns in a matrix! Cool!
+By default throw out missing values from columns
+
+FUNCTIONS
+f <- function(arguments) {
+        ## stuff
+}
+Functions can be passed as arguments to other functions.
+They can also be nested inside each other.
+Named arguments: may have default values, or not be specified. 
+Formal arguments: included in function definition. But they can be missing.
+Arguments can be matched by position or name; don't change order too much though.
+You can choose to not specify a default value or to set an argument value to NULL.
+Lazy evaluation: arguments only evaluated as they are needed/called.
+The ... argument can be a variable number of arguments to pass to other functions
+    So the paste function may paste a variable number of arguments together.
+    But any argument set up after the ... must be named explicitly.
+
+SCOPING
+When you have two functions (one default, one you write), R first searches your 
+    environment, and then searches the various packages in the search list.
+When you load a package at the beginning, gets searched second (after environment)
+R has separate namespaces for functions and non-functions
+    Lexical scoping: uses a search list, starts with global environment, to bind 
+        value to a symbol. This becomes relevant when you have free variables.
+	Associating a function and an environment is called a "function closure"
+	First searches original environment, then parent environment, then on up.
+    Dynamic scoping: uses the calling environment (ie, function) to bind a value
+When functions are defined inside other functions, lexical scoping can help.
+ls() tells you what's in an environment, can pass ls() a function as argument
+Consequences: all objects in R must be stored in memory (so each function must 
+    have a pointer to the environment in which it was defined). 
+Applications: functions like optimize() require you to pass function as argument
+    But you might want to fix one or more values. So then this becomes usseful.
+So you can build functions with all the data necessary to evaluate the function.
+    This is helpful for avoiding long argument lists, interactive work
+
+DATES AND TIMES
+R represents dates and times by the Date class and the POXIZct/POSIXlt classes
+Dates and times stored as number of days/seconds since 1970-01-01
+Convert a string to a date: as.Date("date")
+If you unclass the object, it gives you the number of interest
+Times represented just as seconds, or as weekdays, months, quarter s etc
+Can convert time structures with as.POSIXlt and as.POSIXct
+strptime() converts a date string in different formats
+The date/time operations keep track of daylight savings, time zones, leap years
+

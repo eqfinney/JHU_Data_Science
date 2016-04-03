@@ -1,0 +1,36 @@
+LOOPS IN R
+Some loop functions
+  - lapply (loop over a list and evaluate function on each element)
+  - sapply (simplify result of lapply)
+  - apply (apply function over margins of array)
+  - tapply (apply function over vector subsets)
+  - mapply (lapply, but multivariate)
+lapply always returns a list upon which a function has been acted
+These functions often use anonymous functions within the argument of the loop
+apply is usually used to apply a function to a matrix
+  "margin" is the axis along which you are applying the functon
+  (note shortcuts exist: rowSums, rowMeans, colSums, colMeans)
+mapply works when you have a function with multiple variables
+tapply is a lot like lapply etc but works over vector subsets
+
+SPLIT
+Splits a vector, list, etc into parts, and you can then use a loop on it
+Very nicely, though, it can also split a data frame or matrix
+A very nice argument on colMeans! na.rm = TRUE
+You can also split on multiple levels using interaction(f1, f2)
+Split calls the interaction function when you give it a list of levels
+You can also drop empty levels with the drop argument in split
+
+DEBUGGING
+message, warning, error, and condition are indications of something gone wrong
+message doesn't stop function execution, and is pretty tame
+warning is an indication something is wrong/unexpected but not exactly fatal
+error indicates a fatal problem and stops execution of the function
+condition is something a programmer can create to indicate weirdnesses
+invisible() prevents autoprinting after a function completes
+R debugging tools:
+  - traceback (prints out the function call stack after error occurs)
+  - debug (steps through function execution one line at a time)
+  - browser (suspends execution of bad function and puts it in debug mode)
+  - trace (inserts debugging code in specific places in a function)
+  - recover (modifies error behavior so that you can browse function call stack)
