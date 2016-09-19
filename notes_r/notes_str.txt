@@ -1,0 +1,24 @@
+THE str FUNCTION
+Displays structure of an R object in one line
+This is similar to the summary() function
+You can also split the data (with split) and then apply str
+
+SIMULATION
+rnorm (random variables w/mean, std)
+dnorm (evaluate normal prob. density at a given point)
+pnorm (evaluate the cdf for a normal distribution)
+rpois (generate random Poisson variates with a given rate)
+Prefixes for random variables: d (density), r (random #s), p (cdf), q (quantile)
+Can specify lower and upper tails, and length of resultant vector
+Remember to set the seed for a random number generation process
+For a linear model, we can also generate random numbers.
+The sample function lets you draw randomly from a given set
+Distributions built in: normal, poisson, binomial, exponential, gamma, etc
+
+R PROFILER
+Profiling: a systematic way to examine time spent in parts of pgogram
+Don't optimize until you've done performance analysis, for the most part
+system.time() tells you how long a process is taking
+User time (computer processing time) vs. elapsed time (wall clock time
+Rprof() starts the profiler (compiled), then summarize with summaryRprof()
+Further reason why breaking your code into functions is a good idea!

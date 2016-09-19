@@ -1,0 +1,2 @@
+INTRO VIDEO
+Inference: generating conclusions about population from noisy sample
