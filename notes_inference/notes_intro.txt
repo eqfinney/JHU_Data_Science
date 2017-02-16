@@ -1,2 +1,54 @@
-INTRO VIDEO
+INTRO AND PROBABILITY
 Inference: generating conclusions about population from noisy sample
+Probability: operates on outcomes of experiment, an intrinsic
+  property of the experimental population (in frequentist thought)
+Probability rules: If event A implies event B, P(A) < P(B)
+P(A or B) = P(A) + P(B) - P(A and B)
+
+PROBABILITY MASS FUNCTIONS
+Discrete vs. continuous random variables, bounded vs. unbounded
+Probability mass function: for every value, assigns the probability
+  that a random variable takes that value. p>=0, and sum of all p=1
+Bernoulli distribution: p(x) = q^x (1-q)^(1-x)
+Probability density function: same as probability mass function,
+  except for continuous variables rather than discrete ones.
+  Same rules, except that p>=0 and integrating all p=1.
+PMFs, PDFs tell about the population, not about the data themselves
+Beta distribution
+Cumulative distribution func'n: F(x)=P(x<X). In R: pbeta() (or cdf)
+Survival function: S(x)=P(X>x) (note S(x)= 1-F(x)
+Xth quantile: point at which probability<some value is X%
+In R: qbeta() or cdf gives the quantile for the chosen cdf
+Estimator of population: sample median; estimand: population median
+
+CONDITIONAL PROBABILITY
+P(A|B) = P(A and B)/P(B) = P(A)P(B)/P(B) = P(A) if independent
+Diagnostic tests:
+  Sensitivity: P(+|D)
+  Specificity: P(-|Dc)
+  Positive predictive value: P(D|+)
+  Negative predictive value: P(Dc|-)
+  Prevalence of disease: P(D)
+Bayes' Rule: P(D|+) = P(+|D)P(D)/{P(+|D)P(D) + P(+|Dc)P(Dc)}
+Marginalization: the denominator, prob of getting + in all cases
+Likelihood ratio: P(D|+)/(1-P(D|+)) = odds of disease
+
+INDEPENDENCE
+Event A is independent of Event B if:
+  P(A|B)=P(A) where P(B)>0, or P(A and B)=P(A)P(B)
+  So you CANNOT MULTIPLY PROBABILITIES IF THEY'RE NOT INDEPENDENT
+We assume random variables independent and identically distributed
+
+EXPECTED VALUES
+Mean: characterizes the center of a distribution
+Variance: characterizes the spread of a distribution
+Sample mean: center of a population; sample variance: spread of pop
+  Compare this with the empirical mean or mean of the data
+The average of random variables is a random variable with
+  an expected value - the center of this distribution is the same
+  as the original distribution. Distribution of sample mean
+  is centered at the same point as the population mean (unbiased)
+This is the basis of the Central Limit Theorem - distribution of
+  averages will always become (an increasingly narrow) Gaussian
+
+

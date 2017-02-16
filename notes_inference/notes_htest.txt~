@@ -1,0 +1,43 @@
+T CONFIDENCE INTERVALS
+Confidence intervals of the form E_st +/- ZQ*SE_est
+T confidence intervals of the form E_st +/- TQ*SE_est (wider tails)
+Gosset's t distribution has thicker tails than a normal distribution
+  Indexed by dof, assumes data are iid Gaussian: (X-mu)/(S/sqrt(n)) for n-1 dof
+  As there are fewer degrees of freedom, wider tails and less in the middle
+
+AB TESTING
+Compare two independent groups with a t test, but can't use a paired t test
+  Y-X +/- TQ*S_est(sqrt((1/nx)+(1/ny))), and TQ has nx-ny-2 dof
+  S_est^2 = {(nx-1)Sx^2 + (ny-1)Sy^2}/(nx+ny-2)
+Note: the package reshape2 in R can be super-helpful
+  Also: violin plots are pretty cool!
+  t.test gives options for equal or unequal variance assumptions
+With unequal variance: Y-X +/- TQ*(sqrt(Sx^2/nx + Sy^2/ny))
+  TQ depends on a very specific formula for degrees of freedom
+  Use the unequal variance interval, not actually a t interval
+For binomial we can compare by:
+  - relative risk, risk difference, odds ratio
+  - chi^2 tests, normal approximations, exact tests
+
+HYPOTHESIS TESTING
+Null hypothesis represents status quo, assumed true
+Four outcomes:
+  - correctly accept null hypothesis (H0, H0)
+  - Type I error (actually H0, decide Ha)
+  - correctly reject null hypothesis (Ha, H0)
+  - Type II error (actually Ha, decide H0)
+Reject the null hypothesis if X>C,
+  where C is chosen so that probability of Type I error is, say, below 0.05
+
+T-TESTS
+The test statistic (X-mean)/(s/sqrt(n)) follows a T distribution with 15 dof
+We may want to reject the null hypothesis if result is too far from the mean
+If you fail to reject the one-sided test, we will also fail to reject two-sided
+Confidence interval results will be consistent with two-sided t-tests
+For two groups, rejection rules same, but testing if one mean equal to the other
+
+P-VALUES
+Idea: suppose nothing is going on, how unusual is the result?
+  How likely are we to get a result as or more extreme than this, if H0 true?
+  Also: smallest value of alpha for which you would still reject H0
+For a two-sided test, you have to double the probability on both tails

@@ -1,0 +1,9 @@
+POWER
+Power: probability of rejecting the null hypothesis when it is false
+Tends to be more important for null results than for non-null results
+Useful for study design: want sample size large enough to catch an effect
+Power = 1-beta, where beta is the type II error probability
+Power is a function that depends on the mean of the null hypothesis
+Power of mua: pnorm(mu0+z*s/sqrt(n), mean=mua, sd=s/sqrt(n), lower.tail=FALSE)
+Easier to detect differences with bigger differences, and larger sample sizes
+Power=(1-beta)=P(X>(mu0+z*s/sqrt(n)); mu=mua)

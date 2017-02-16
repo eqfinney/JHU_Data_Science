@@ -1,0 +1,46 @@
+POWER
+Power: probability of rejecting the null hypothesis when it is false
+Tends to be more important for null results than for non-null results
+Useful for study design: want sample size large enough to catch an effect
+Power = 1-beta, where beta is the type II error probability
+Power is a function that depends on the mean of the null hypothesis
+Power of mua: pnorm(mu0+z*s/sqrt(n), mean=mua, sd=s/sqrt(n), lower.tail=FALSE)
+Easier to detect differences with bigger differences, and larger sample sizes
+Power=(1-beta)=P(X>(mu0+z*s/sqrt(n)); mu=mua)
+
+MULTIPLE COMPARISONS
+Hypothesis testing is commonly overused - want to avoid false positives
+Components: error measure, and correction to the error measure
+With lots of data, we need to account for statistical error in the test
+False positive rate: rate at which false results are considered significatn
+Family wise error rate (FWER): probability of at least one false positive
+False discovery rate (FDR): rate at which claims of significance are false
+How then do we control the false positive rate?
+  If P-values are correctly calculated, your rate of false positives is alpha
+  But lots of hypothesis tests imply lots of false positives
+How do we control the family-wise error rate? Bonferroni correction
+  Calculate P-values normally, set alpha=alpha/m
+  Then all P-values less than new alpha level are not significant
+  This is easy to calculate, but may be incredibly conservative
+How do we control the false discovery rate? Benjamini-Hochberg correction
+  Calculate P-values normally, order them from smallest to largest
+  Then call alpha = alpha*(i/m), and see if P is less than new alpha
+  Still pretty easy to calculate and much less conservative
+Another approach: adjust the P-values rather than adjusting the alpha
+  BUT once you adjust the P-values, they are no longer classical P-values!
+  Could take m*P_i < 1, and then take all P-values less than alpha
+  You can use the p.adjust function in R for this
+If there is a strong dependence between tests, you may need another method
+
+RESAMPLING: BOOTSTRAP
+Bootstrapping means you take your confidence interval from the data themselves
+You draw from the data themselves (with replacement) to get your statistics
+Use the sample command in R: sample(array, number of draws, replace=TRUE)
+If I have a statistic but don't know its distribution, use data to investigate
+  Simulate complete data sets by drawing from data with replacement
+  Draw from the data as your distribution, calculate statistic
+
+RESAMPLING: PERMUTATION TESTING
+Rank sum test, Fisher's exact test, randomization test
+Permutation tests work very well in multivariate settings
+Can you find a reconfiguration that is more extreme than the observed values?
