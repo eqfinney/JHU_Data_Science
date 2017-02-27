@@ -1,0 +1,46 @@
+---
+title: "Simulating the Central Limit Theorem"
+author: "Emily Quinn Finney"
+date: "December 21, 2016"
+output: pdf_document
+---
+
+\section*{Overview}
+
+In a few (2-3) sentences explain what is going to be reported on.
+
+\section*{Simulations}
+Include English explanations of the simulations you ran, with the accompanying R code. Your explanations should make clear what the R code accomplishes.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+mns = NULL
+for (i in 1:1000) mns=c(mns, mean(rexp(40,0.2)))
+```
+
+\section*{Sample Mean versus Theoretical Mean}
+Include figures with titles. In the figures, highlight the means you are comparing. - - Include text that explains the figures and what is shown on them, and provides appropriate numbers.
+
+```{r}
+mean(mns)
+```
+
+\section*{Sample Variance versus Theoretical Variance}
+Include figures (output from R) with titles. Highlight the variances you are comparing. Include text that explains your understanding of the differences of the variances.
+
+```{r}
+var(mns)
+```
+
+\section*{Distribution}
+Via figures and text, explain how one can tell the distribution is approximately normal.
+
+```{r}
+hist(mns)
+hist(rexp(40000,0.2))
+```
+
+Focus on the difference between the distribution of a large collection of random exponentials and the distribution of a large collection of averages of 40 exponentials.
